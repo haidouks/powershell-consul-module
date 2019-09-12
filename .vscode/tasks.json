@@ -22,8 +22,8 @@
         "args": [ "-NoProfile" ]
     },
     "osx": {
-        "command": "/usr/local/bin/powershell",
-        "args": [ "-NoProfile" ]
+        "command": "/usr/local/bin/pwsh",
+        "args": [ "-Command" ]
     },
 
     // Associate with test task runner

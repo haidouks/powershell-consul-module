@@ -24,7 +24,7 @@ function New-ConsulKey {
         try {
             $consulUrl = $Script:consulServer + $keyPath
             $result = Invoke-RestMethod -Uri $consulUrl -Method Put -Body $json -NoProxy -ContentType "application/json"
-            $result ? "true" :  return $true
+            return [bool]$result
         }
         catch {
             $exception = $($PSItem | select-object * |Format-Custom -Property * -Depth 1 | Out-String)
