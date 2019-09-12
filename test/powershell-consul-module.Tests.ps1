@@ -15,10 +15,16 @@ Describe 'Module Manifest Tests' {
     }
 }
 
+
+
 Describe "Key operations" {
     Context "Adding a new key" {
         It "If key and path is valid, key will be created/updated with new value" {
             New-ConsulKey -keyPath $keyPath -json $keyValue | Should -Be $true
+        }
+        It "If consul server is unreachable, it should throw exception" {
+            Set-consulServer -consulServer "http://Unreachable"
+            {New-ConsulKey -keyPath $keyPath -json $keyValue} | Should -Throw
         }
     }
 }

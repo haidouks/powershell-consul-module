@@ -36,6 +36,27 @@ function New-ConsulKey {
     }
 }
 
+function Set-ConsulServer {
+    [CmdletBinding()]
+    param (
+        # Base url of consul kv store
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $consulServer
+    )
+
+    begin {
+    }
+
+    process {
+        $Script:consulServer = $consulServer
+    }
+
+    end {
+    }
+}
+
 # Export only the functions using PowerShell standard verb-noun naming.
 # Be sure to list each exported functions in the FunctionsToExport field of the module manifest file.
 # This improves performance of command discovery in PowerShell.
